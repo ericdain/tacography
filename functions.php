@@ -36,13 +36,13 @@ function tacography_setup() {
 	add_theme_support( 'title-tag' );
 
 	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
+	 * Enable support for Post Thumbnails on posts and pages (aka featured images).
+         * 
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in one location. Add to array for more.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'tacography' ),
 	) );
@@ -103,6 +103,10 @@ add_action( 'widgets_init', 'tacography_widgets_init' );
  */
 function tacography_scripts() {
 	wp_enqueue_style( 'tacography-style', get_stylesheet_uri() );
+        
+        //Add Google fonts: Exo 2 and Cuprum
+        
+        wp_enqueue_style ( 'tacography-google-fonts', "https://fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i|Exo+2:400,400i,700,700i");
 
 	wp_enqueue_script( 'tacography-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
